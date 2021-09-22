@@ -3,11 +3,14 @@
 *{
     box-sizing: border-box;
     font-family: Raleway;
+    user-select: none;
 }
 
 body{
     color: white;
 }
+
+/* Main */
 
 .main{
     min-height: 100vh;
@@ -36,24 +39,37 @@ body{
     box-shadow: 0px 4px 4px 0px #00000040;
 }
 
+.main__header-search:hover{
+    cursor: pointer;
+}
+
 .main__header-location{
-    height: 40px;
-    width: 40px;
+    height: 2.5rem;
+    width: 2.5rem;
     border-radius: 50%;
     background: #6E707A;
     box-shadow: 0px 4px 4px 0px #00000040;
+    color: white;
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.main__header-location:hover{
+    cursor: pointer;
+}
+
+.main__img{
+    margin-top: 5rem;
+}
+
 .main__temperature{
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
 }
 
 .main__temperature-value{
-    font-size: 11rem;
+    font-size: 9rem;
 }
 
 .main__temperature-unit{
@@ -68,13 +84,280 @@ body{
 }
 
 .main__date{
-    margin-top: 3rem;
+    margin-top: 2rem;
     color: #88869D;
     font-size: 1.2rem;
 }
 
 .main__location{
     margin-top: 2rem;
-    color: #88869D;
+    opacity: .5;
     font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    gap: .3rem;
 }
+
+
+/* Cards */
+
+.cards{
+    width: 100%;
+    padding-top: 3.2rem;
+    padding-bottom: 8rem;
+    background: #100E1D;
+
+    display: flex;
+    gap: 4rem;
+    flex-direction: column;
+}
+
+.cards__days{
+    width: 100%;
+
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit,8.5rem);
+    grid-template-rows: auto;
+    gap: 1.6rem;
+}
+
+
+/*Card Day*/
+
+.card-day{
+    width: 100%;
+    height: 12rem;
+    background: #1E213A;
+    padding: 1.1rem 1.4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.card-day__img{
+
+    width: 4rem;
+    height: auto;
+
+}
+
+.card-day__temperatures{
+
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-day__min{
+    color:#A09FB1;
+    justify-self: flex-start;
+}
+
+/*-------------------------------------*/
+
+.cards__today-highlights{
+    display: grid;
+    grid-template-rows: repeat(4,auto);
+    grid-template-columns: 20.5rem;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.cards__today-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    color: #E7E7EB;
+}
+
+/*Card highlight*/
+
+.card-highlight{
+    padding: 1.5rem 0 2rem 0;
+    width: 100%;
+    height: auto;
+    background: #1E213A;
+    color: #E7E7EB;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.card-highlight__value{
+    font-size: 5rem;
+}
+
+.card-highlight__unit{
+    font-size: 3rem;
+}
+
+
+/* Slider */
+
+.slider{
+    width: 100%;
+    height: 100vh;
+    background: #1E213A;
+    position: fixed;
+    padding: 0 .8rem;
+    transition: .5s;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.slider--closed{
+    transform: translateX(-100%);
+}
+
+.slider--opened{
+    transform: translateX(0);
+}
+
+.slider__close-button{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.slider__close-button:hover{
+    cursor: pointer;
+}
+
+.slider__header{
+    width: 100%;
+    margin-top: 3.5rem;
+
+    display: flex;
+    gap: .8rem;
+}
+
+.slider__header-bar{
+    height: 3rem;
+    width: 100%;
+    border: 1px solid white;
+    opacity: .6;
+    padding-left: .5rem;
+
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.slider__header-input{
+    height: 100%;
+    width: calc(100% - 2rem);
+    outline: none;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.slider__header-button{
+    height: 3rem;
+    padding: 0 1rem;
+    background: #3C47E9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider__header-button:hover{
+    cursor: pointer;
+}
+
+.slider__options{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.slider__option{
+    height: 4rem;
+    padding: 0 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.slider__option:hover{
+    border: 1px solid #616475;
+    cursor: pointer;
+}
+
+.slider__option:hover > svg{
+    visibility: visible;
+}
+
+.slider__option svg{
+    visibility: hidden;
+}
+
+
+/* Wind Bar */
+
+.humidity-bar{
+    width: calc(100% - 4rem);
+    height: auto;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.humidity-bar__values{
+    height: .5rem;
+    padding: 0.3rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.humidity-bar__bar{
+    height: .5rem;
+    background: #E7E7EB;
+    border-radius: 5rem;
+}
+
+.humidity-bar__bar-value{
+    background: #FFEC65;
+    border-radius: 5rem;
+    height: 100%;
+    width: 84%;
+}
+
+.humidity-bar__unit{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Scrollbal */
+
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(110, 112, 122, 0.25);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(110, 112, 122);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(77, 79, 87);
+  }
+
+  /* Media Queries */
