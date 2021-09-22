@@ -4,7 +4,7 @@ import { useApp } from '../context/appContext'
 
 const Main = () => {
 
-    const {data, setIsSliderOpen} = useApp()
+    const {data, setIsSliderOpen, isCelsiusUnit, celsiusToFahrenheit} = useApp()
 
     return (
         <div className='main'>
@@ -22,8 +22,8 @@ const Main = () => {
             <img className='main__img' src={data[0].img} alt="Shower" />
 
             <div className='main__temperature'>
-                <span className='main__temperature-value'>{data[0].the_temp}</span>
-                <span className='main__temperature-unit'>°C</span>
+                <span className='main__temperature-value'>{isCelsiusUnit ? data[0].the_temp : celsiusToFahrenheit(data[0].the_temp)}</span>
+                <span className='main__temperature-unit'>{isCelsiusUnit ? '°C' : '°F'}</span>
             </div>
 
             <div className='main__weather'>

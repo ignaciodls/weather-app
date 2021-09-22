@@ -6,6 +6,11 @@ const AppContext = React.createContext()
 export function AppContextProvider(props){
 
     const [isSliderOpen, setIsSliderOpen] = useState(false)
+    const [isCelsiusUnit, setIsCelsiusUnit] = useState(true)
+
+    const celsiusToFahrenheit = (celsius) => {
+      return Math.round((celsius*(9/5)) + 32)
+    }
 
     const data = [
         {
@@ -58,6 +63,9 @@ export function AppContextProvider(props){
         data,
         isSliderOpen,
         setIsSliderOpen,
+        isCelsiusUnit,
+        setIsCelsiusUnit,
+        celsiusToFahrenheit
     }
 
 

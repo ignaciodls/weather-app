@@ -10,6 +10,11 @@ body{
     color: white;
 }
 
+.root{
+    display: flex;
+    flex-direction: column;
+}
+
 /* Main */
 
 .main{
@@ -111,6 +116,37 @@ body{
     display: flex;
     gap: 4rem;
     flex-direction: column;
+    align-items: center;
+}
+
+.cards__grade-units{
+    display: flex;
+    gap: 1rem;
+}
+
+.cards__grade_unit{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards__grade_unit:hover{
+    cursor: pointer;
+}
+
+.cards__grade_unit:nth-child(1){
+    background: #E7E7EB;
+    color: black;
+}
+
+.cards__grade_unit:nth-child(2){
+    background: #585676;
 }
 
 .cards__days{
@@ -160,8 +196,15 @@ body{
 
 /*-------------------------------------*/
 
+.cards__today-highlights-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 .cards__today-highlights{
     display: grid;
+    width: 20.5rem;
     grid-template-rows: repeat(4,auto);
     grid-template-columns: 20.5rem;
     justify-content: center;
@@ -361,3 +404,30 @@ body{
   }
 
   /* Media Queries */
+
+  @media (min-width: 1600px){
+
+    html{
+        font-size: 16px;
+    }
+
+    .root{
+        flex-direction: row;
+    }
+
+    .main{
+        width: 40rem;
+        min-width: 40rem;
+    }
+
+    .cards__today-highlights{
+        grid-template-columns: repeat(2,20.5rem);
+        grid-template-rows: repeat(2,auto);
+        width: 43rem;
+    }
+
+    .slider{
+        width: 40rem;
+    }
+
+  }

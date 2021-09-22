@@ -5,10 +5,16 @@ import HighlightCard from './HighlightCard'
 
 const Cards = () => {
 
-    const {data} = useApp()
+    const {data, setIsCelsiusUnit} = useApp()
 
     return (
         <div className='cards'>
+
+            <div className='cards__grade-units'>
+                <div className='cards__grade_unit' onClick={() => setIsCelsiusUnit(true)}>°C</div>
+                <div className='cards__grade_unit' onClick={() => setIsCelsiusUnit(false)}>°F</div>
+            </div>
+
             <div className='cards__days'>
 
                 {
@@ -30,21 +36,25 @@ const Cards = () => {
             </div>
 
 
-            <div className='cards__today-highlights'>
+            <div className='cards__today-highlights-wrapper'>
                 <div className='cards__today-title'>Today’s Hightlights </div>
 
-                {
-                    Object.entries(data[0]).slice(-4).map((arr,idx) => {
+                <div className='cards__today-highlights'>
 
-                        return (
-                            <HighlightCard
-                            key={idx}
-                            type={arr[0]}
-                            value={arr[1]}/>
-                        )
+                    {
+                        Object.entries(data[0]).slice(-4).map((arr,idx) => {
 
-                    })
-                }
+                            return (
+                                <HighlightCard
+                                key={idx}
+                                type={arr[0]}
+                                value={arr[1]}/>
+                            )
+
+                        })
+                    }
+
+                </div>
 
             </div>
         </div>

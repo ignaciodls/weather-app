@@ -14,8 +14,10 @@ function App() {
     <Normalize/>
     <AppContextProvider>
       <Slider/>
+      <div className='root'>
       <Main/>
       <Cards/>
+      </div>
     </AppContextProvider>
     </>
   );
